@@ -13,11 +13,12 @@ use App\Models\Company;
 class SearchController extends Controller
 {
     public function searchCompany(Request $request) {
-
         $per_page = $request->input('per_page');
-        $name = $request->get('name');
+        $name = request()->query("search");
         $obj = new Company();
-        $companies = $obj->where('company_name', 'like', "%$name%")->paginate($per_page);
+        $companies = $obj->where('company_name', 'like', '%' .$name . '%')->paginate($per_page);
+//
+        $companies->appends(['name' => $name]);
         return view('companies', ['companies' => $companies]);
     }
-}
+}//no baảo ko tim thay :v
