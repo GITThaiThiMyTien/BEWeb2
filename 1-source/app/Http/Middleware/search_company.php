@@ -43,6 +43,10 @@ class search_company
             }
         }
 
+        if(isset($_GET['company_name'])){
+            $name = $request->get('name');
+        }
+
 //        luu gia tri per_page de gui qua controller
         $request->merge([ 'per_page' => $per_page]);
 

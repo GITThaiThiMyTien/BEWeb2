@@ -12,12 +12,12 @@ use App\Models\Company;
 
 class SearchController extends Controller
 {
-    public function search(Request $request) {
+    public function searchCompany(Request $request) {
 
-        $per_page = $request->get('per_page');
+        $per_page = $request->input('per_page');
         $name = $request->get('name');
         $obj = new Company();
-        $companies = $obj->where('company_name', 'like', "%name%")->paginate($per_page);
+        $companies = $obj->where('company_name', 'like', "%$name%")->paginate($per_page);
         return view('companies', ['companies' => $companies]);
     }
 }
