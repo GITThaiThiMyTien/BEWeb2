@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\SearchController;
 use App\Http\Middleware\PerPage;
 use App\Http\Middleware\trainer_logic;
+use App\Http\Middleware\search_company;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +28,8 @@ Route::get('/companies', [CompanyController::class, 'getCompanies'])
 
 Route::get('/trainers', [TrainerController::class, 'getTrainers'])
 ->middleware('trainer_logic');
-
+Route::get('/search', [SearchController::class, 'searchCompany'])
+    ->middleware('search_company');
 Route::fallback(function () {
     return view('404');
 })->name('NotFound');
