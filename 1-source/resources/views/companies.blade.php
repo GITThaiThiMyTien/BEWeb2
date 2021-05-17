@@ -18,7 +18,10 @@
 </head>
 
 <body>
-
+<form action="http://127.0.0.1:8000/search" method="get">
+    <input type="text" name="" id="" placeholder="Enter company name to search">
+    <button type="submit">Search</button>
+</form>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-normal">Lập trình backend-web 2</h5>
     <nav class="my-2 my-md-0 mr-md-3">

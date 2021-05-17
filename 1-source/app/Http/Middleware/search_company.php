@@ -18,7 +18,7 @@ class search_company
     {
 
         $per_page = $request->input('per_page');
-        $name  =
+
         //is null
         if (empty($per_page)) {
             $per_page = 10;

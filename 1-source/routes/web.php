@@ -28,7 +28,7 @@ Route::get('/companies', [CompanyController::class, 'getCompanies'])
 
 Route::get('/trainers', [TrainerController::class, 'getTrainers'])
 ->middleware('trainer_logic');
-Route::get('/search', [SearchController::class, 'searchCompany'])
+Route::get('/companies', [SearchController::class, 'searchCompany'])
     ->middleware('search_company');
 Route::fallback(function () {
     return view('404');
